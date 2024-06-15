@@ -1,0 +1,17 @@
+<html><head><style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        </style></head><body><h2>Laporan Pengeluaran</h2><table><thead><tr><th>No</th><th>Keperluan</th><th>Tanggal</th><th>Uang Keluar</th></tr></thead><tbody><tr><td>1</td><td>Beli Kamera</td><td>2024-01-10</td><td>10000000</td></tr></tbody></table></body></html>
