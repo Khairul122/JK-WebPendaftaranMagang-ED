@@ -8,11 +8,11 @@ function GetAll()
   while ($data = mysqli_fetch_array($exe)) {
     $datas[] = array(
       'id_lowongan' => $data['id_lowongan'],
-      'nama_perus' => $data['nama_perus'],
+      'nama_perusahaan' => $data['nama_perusahaan'],
       'bidang' => $data['bidang'],
       'kuota' => $data['kuota'],
       'valid_until' => $data['valid_until'],
-      'persyaratan_khusus' => $data['persyaratan_khusus'],
+      'persyaratan' => $data['persyaratan'],
     );
   }
   return $datas;
@@ -50,10 +50,6 @@ function GetAllBerita()
   <title>BPJS KETENAGAKERJAAN </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/logo3.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -203,12 +199,12 @@ function GetAllBerita()
               foreach ($lowongans as $data) {
                 echo "<tr>";
                 echo "<td>" . $no++ . "</td>";
-                echo "<td>" . $data['nama_perus'] . "</td>";
+                echo "<td>" . $data['nama_perusahaan'] . "</td>";
                 echo "<td>" . $data['bidang'] . "</td>";
                 echo "<td>" . $data['kuota'] . "</td>";
                 echo "<td>" . date('d F Y', strtotime($data['valid_until'])) . "</td>";
                 echo "<td>";
-                $persyaratanKhusus = explode("\n", $data['persyaratan_khusus']);
+                $persyaratanKhusus = explode("\n", $data['persyaratan']);
                 foreach ($persyaratanKhusus as $index => $persyaratan) {
                   echo ($index + 1) . ". " . trim($persyaratan) . "<br>";
                 }
