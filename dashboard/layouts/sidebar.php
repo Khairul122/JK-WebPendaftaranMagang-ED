@@ -227,6 +227,11 @@ function GetOneProfile($id_profile)
                         <i class="fas fa-fw fa-newspaper"></i>
                         <span>Kelola Berita</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?r=mentor/index">
+                        <i class="fas fa-fw fa-newspaper"></i>
+                        <span>Kelola Mentor</span></a>
+                </li>
             <?php } ?>
 
             <!-- Divider -->

@@ -16,6 +16,7 @@ require_once 'func.php';
         <th>Bidang</th>
         <th>Nama Perusahaan</th>
         <th>Status</th>
+        <th>Nama Mentor</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@ require_once 'func.php';
           echo "<td>" . $data['bidang'] . "</td>";
           echo "<td>" . $data['nama_perusahaan'] . "</td>";
           echo "<td>" . $data['status'] . "</td>";
+          echo "<td>" . $data['nama_mentor'] . "</td>";
         }
       } else {
         echo "<tr><td colspan='7' class='text-center'>Tidak ada data pendaftaran.</td></tr>";

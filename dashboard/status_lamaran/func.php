@@ -12,7 +12,8 @@ function GetAll() {
 
   if ($id) {
     // Ubah query untuk memilih data berdasarkan id_pengguna
-    $query = "SELECT p.*, d.nama_lengkap, d.jenis_kelamin, l.nama_perusahaan, l.bidang FROM tbl_pendaftaran p 
+    $query = "SELECT p.*, d.nama_lengkap, d.jenis_kelamin, l.nama_perusahaan, l.bidang, p.nama_mentor 
+              FROM tbl_pendaftaran p 
               JOIN tbl_datadiri d ON p.id_datadiri = d.id_datadiri 
               JOIN tbl_lowongan l ON p.id_lowongan = l.id_lowongan 
               WHERE p.id_pengguna = $id"; // Pastikan tabel yang benar digunakan
@@ -29,6 +30,7 @@ function GetAll() {
           'bidang' => $data['bidang'],
           'nama_perusahaan' => $data['nama_perusahaan'],
           'status' => $data['status'],
+          'nama_mentor' => $data['nama_mentor'], 
         );
       }
       return $datas;
@@ -41,6 +43,7 @@ function GetAll() {
     return array();
   }
 }
+
 
 function GetOne($id_pendaftaran) {
   global $conn; // Gunakan variabel koneksi global

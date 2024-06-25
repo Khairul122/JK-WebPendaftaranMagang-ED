@@ -33,6 +33,7 @@ $searchBidang = isset($_GET['searchBidang']) ? $_GET['searchBidang'] : '';
         <th>Jenis Kelamin</th>
         <th>Bidang</th>
         <th>Nama Perusahaan</th>
+        <th>Nama Mentor</th>
         <th>Status</th>
         <th>Aksi</th>
       </tr>
@@ -49,6 +50,7 @@ $searchBidang = isset($_GET['searchBidang']) ? $_GET['searchBidang'] : '';
           echo "<td>" . $data['jenis_kelamin'] . "</td>";
           echo "<td>" . $data['bidang'] . "</td>";
           echo "<td>" . $data['nama_perus'] . "</td>";
+          echo "<td>" . $data['nama_mentor'] . "</td>";
           echo "<td>" . $data['status'] . "</td>";
           echo "<td>
                 <div class=\"btn-group\">

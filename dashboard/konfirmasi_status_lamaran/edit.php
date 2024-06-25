@@ -3,6 +3,7 @@ require_once 'func.php';
 
 $id_pendaftaran = $_POST['id_pendaftaran'];
 $one = GetOne($id_pendaftaran);
+$mentors = GetMentors();
 ?>
 
 <div class='panel panel-info'>
@@ -14,6 +15,16 @@ $one = GetOne($id_pendaftaran);
       <input type='hidden' name='id_pendaftaran' value="<?php echo $_POST['id_pendaftaran']; ?>">
       <?php
       foreach ($one as $data) { ?>
+        <div class="form-group">
+          <label for="nama_mentor">Nama Mentor</label>
+          <select class="form-control" id="nama_mentor" name="nama_mentor">
+            <?php foreach ($mentors as $mentor) { ?>
+              <option value="<?php echo $mentor['nama_mentor']; ?>" <?php if ($data['nama_mentor'] == $mentor['nama_mentor']) echo 'selected'; ?>>
+                <?php echo $mentor['nama_mentor']; ?>
+              </option>
+            <?php } ?>
+          </select>
+        </div>
         <div class="form-group">
           <label for="status">Status Pendaftaran</label>
           <select class="form-control" id="status" name="status">

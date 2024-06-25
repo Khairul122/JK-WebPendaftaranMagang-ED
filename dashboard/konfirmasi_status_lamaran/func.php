@@ -15,7 +15,8 @@ function GetAll()
             d.jenis_kelamin,
             l.bidang,
             l.nama_perusahaan AS nama_perus,
-            p.status
+            p.status,
+            p.nama_mentor
         FROM tbl_pendaftaran p
         JOIN tbl_datadiri d ON p.id_datadiri = d.id_datadiri
         JOIN tbl_lowongan l ON p.id_lowongan = l.id_lowongan
@@ -30,6 +31,7 @@ function GetAll()
     return $datas;
 }
 
+
 function GetOne($id_pendaftaran)
 {
     global $conn;
@@ -40,7 +42,8 @@ function GetOne($id_pendaftaran)
             d.jenis_kelamin,
             l.bidang,
             l.nama_perusahaan AS nama_perus,
-            p.status
+            p.status,
+            p.nama_mentor
         FROM tbl_pendaftaran p
         JOIN tbl_datadiri d ON p.id_datadiri = d.id_datadiri
         JOIN tbl_lowongan l ON p.id_lowongan = l.id_lowongan
@@ -56,6 +59,19 @@ function GetOne($id_pendaftaran)
     return $datas;
 }
 
+function GetMentors()
+{
+    global $conn;
+    $query = "SELECT id_mentor, nama_mentor FROM tbl_mentor";
+    $exe = mysqli_query($conn, $query);
+    $mentors = array();
+
+    while ($mentor = mysqli_fetch_assoc($exe)) {
+        $mentors[] = $mentor;
+    }
+    return $mentors;
+}
+
 function Insert()
 {
     // Implementasi fungsi insert sesuai kebutuhan
@@ -65,9 +81,11 @@ function Update($id_pendaftaran)
 {
     global $conn;
     $status = $_POST['status'];
+    $nama_mentor = $_POST['nama_mentor'];
 
     $query = "UPDATE `tbl_pendaftaran` SET 
-                `status` = '$status'
+                `status` = '$status',
+                `nama_mentor` = '$nama_mentor'
                 WHERE `id_pendaftaran` = '$id_pendaftaran'";
     $exe = mysqli_query($conn, $query);
 
